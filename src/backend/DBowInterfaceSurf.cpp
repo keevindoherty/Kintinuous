@@ -72,16 +72,17 @@ void DBowInterfaceSurf::reset()
 void DBowInterfaceSurf::detectSURF(const cv::Mat & im, std::vector<float> & imageDescriptor, std::vector<cv::KeyPoint> & imageKeyPoints)
 {
     // extract surfs with opencv
-    static cv::SURF surf_detector(400, 4, 2, false);
+    static cv::Ptr<cv::xfeatures2d::SURF> surf_detector = cv::xfeatures2d::SURF::create(400, 4, 2, false);
 
     vector<float> plain;
-    surf_detector(im, cv::Mat(), keys, plain);
+	surf_detector->detect(im, keys, cv::Mat());
+	surf_detector->compute(im, keys, plain);
 
     imageDescriptor.insert(imageDescriptor.end(), plain.begin(), plain.end());
     imageKeyPoints.insert(imageKeyPoints.end(), keys.begin(), keys.end());
 
     // change descriptor format
-    const int L = surf_detector.descriptorSize();
+    const int L = surf_detector->descriptorSize();
 
     descriptors.resize(plain.size() / L);
 

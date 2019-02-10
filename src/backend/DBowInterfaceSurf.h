@@ -23,7 +23,8 @@
 #include <iostream>
 
 #include <opencv2/opencv.hpp>
-#include <opencv2/nonfree/features2d.hpp>
+#include <opencv2/features2d.hpp>
+#include <opencv2/xfeatures2d.hpp>
 #include <DVision/DVision.h>
 #include <DBoW2/FSurf64.h>
 #include <DLoopDetector/TemplatedLoopDetector.h>
