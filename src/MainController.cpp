@@ -192,7 +192,7 @@ void MainController::loadCalibration()
         if(extension == ".xml" || extension == ".yml"){
             // Traditional kintinuous format (opencv)
             cv::FileStorage calibrationFile(calFile.c_str(), cv::FileStorage::READ);
-            depthIntrinsics = new cv::Mat((CvMat *) calibrationFile["depth_intrinsics"].readObj(), true);
+			depthIntrinsics = new cv::Mat(calibrationFile["depth_intrinsics"].mat());
         } else {
             // ElasticFusion format
             std::ifstream file(calFile);
