@@ -20,13 +20,14 @@
 #ifndef DEFORMATIONGRAPH_H_
 #define DEFORMATIONGRAPH_H_
 
-#include <opencv2/opencv.hpp>
-#include <boost/thread.hpp>
-#include <vector>
+// Include FLANN before OpenCV to prevent issues with unordered map serialization
 #include <pcl/PolygonMesh.h>
 #include <pcl/kdtree/kdtree_flann.h>
 #include <pcl/filters/extract_indices.h>
 #include <pcl/kdtree/impl/kdtree_flann.hpp>
+#include <opencv2/opencv.hpp>
+#include <boost/thread.hpp>
+#include <vector>
 
 #include "../utils/Stopwatch.h"
 #include "GraphNode.h"

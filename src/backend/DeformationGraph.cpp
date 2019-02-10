@@ -355,7 +355,7 @@ void DeformationGraph::connectGraphNNTemporal(pcl::PointCloud<pcl::PointXYZRGBNo
             }
 
             //Only connect if less than a minute apart
-            if(abs(graphTimeMap->at(pointIdxNKNSearch.at(j)) - graphTimeMap->at(i)) < 60000000)
+            if(fabs(graphTimeMap->at(pointIdxNKNSearch.at(j)) - graphTimeMap->at(i)) < 60000000)
             {
                 graphNodes[i].neighbours.push_back(&graphNodes[pointIdxNKNSearch.at(j)]);
                 numNeighboursAdded++;
@@ -475,13 +475,13 @@ void DeformationGraph::weightVerticesSeq(pcl::PointCloud<pcl::PointXYZRGBNormal>
             }
         }
 
-        if(abs(sampledGraphTimes[imin] - vertexTime) <= abs(sampledGraphTimes[imid] - vertexTime) &&
-           abs(sampledGraphTimes[imin] - vertexTime) <= abs(sampledGraphTimes[imax] - vertexTime))
+        if(fabs(sampledGraphTimes[imin] - vertexTime) <= fabs(sampledGraphTimes[imid] - vertexTime) &&
+           fabs(sampledGraphTimes[imin] - vertexTime) <= fabs(sampledGraphTimes[imax] - vertexTime))
         {
             foundIndex = imin;
         }
-        else if(abs(sampledGraphTimes[imid] - vertexTime) <= abs(sampledGraphTimes[imin] - vertexTime) &&
-                abs(sampledGraphTimes[imid] - vertexTime) <= abs(sampledGraphTimes[imax] - vertexTime))
+        else if(fabs(sampledGraphTimes[imid] - vertexTime) <= fabs(sampledGraphTimes[imin] - vertexTime) &&
+                fabs(sampledGraphTimes[imid] - vertexTime) <= fabs(sampledGraphTimes[imax] - vertexTime))
         {
             foundIndex = imid;
         }
@@ -610,7 +610,7 @@ void DeformationGraph::weightVerticesNNTemporal(pcl::KdTreeFLANN<pcl::PointXYZRG
         //Assume sorted kNN
         for(unsigned int j = 0; j < pointIdxNKNSearch.size() && (int)validIndices.size() < k + 1; j++)
         {
-            if(abs(graphTimeMap->at(pointIdxNKNSearch.at(j)) - vertexTimeMap->at(i)) < 60000000)
+            if(fabs(graphTimeMap->at(pointIdxNKNSearch.at(j)) - vertexTimeMap->at(i)) < 60000000)
             {
                 validIndices.push_back(pointIdxNKNSearch.at(j));
                 validDistances.push_back(pointNKNSquaredDistance.at(j));
