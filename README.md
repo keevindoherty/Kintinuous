@@ -1,5 +1,7 @@
 # Kintinuous #
 
+This fork of Kintinuous is intended to provide compatibility with OpenCV 3 and CUDA 6.1
+
 Real-time dense visual SLAM system capable of producing high quality globally consistent point and mesh reconstructions over hundreds of metres in real-time with only a low-cost commodity RGB-D sensor.
 
 # Related Publications #
@@ -23,9 +25,9 @@ Please cite the most appropriate of these works (in order of our preference) if 
 * zlib
 * libjpeg
 * [OpenCV](http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.9/opencv-2.4.9.zip)
-* [DLib](https://github.com/dorian3d/DLib) @ 330bdc10576f6bcb55e0bd85cd5296f39ba8811a
-* [DBoW2](https://github.com/dorian3d/DBoW2) @ 4a6eed2b3ae35ed6837c8ba226b55b30faaf419d
-* [DLoopDetector](https://github.com/dorian3d/DLoopDetector) @ 84bfc56320371bed97cab8aad3aa9561ca931d3f
+* [DLib](https://github.com/dorian3d/DLib) @ ebb73a516bc56069fb05958d3557c5170bcf76b8
+* [DBoW2](https://github.com/dorian3d/DBoW2) @ 1b49624144b4f30d238ca9ffeb9138bb44cd302c
+* [DLoopDetector](https://github.com/dorian3d/DLoopDetector) @ 33d1b7f35eab16034a88962b90dcce5f1d86aea8
 * [iSAM](http://people.csail.mit.edu/kaess/isam/)
 * [PCL](http://pointclouds.org/)
 * [Pangolin](https://github.com/stevenlovegrove/Pangolin)
